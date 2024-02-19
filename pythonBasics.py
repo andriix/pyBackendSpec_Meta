@@ -1,13 +1,9 @@
-print("Hello. Input http status:")
-stat = float(input())
+my_string = "looping"
 
-match stat:
-    case 200 | 201:
-        print("successs")
-    case 400:
-        print("bad")
-    case 500:
-        print("error")
-    case _:
-        print("unknown")
+for item in my_string:
+    print("output: ", item)
 
+for idx, item in enumerate(my_string):
+    print(idx, item)
+
+[print("output: ", item) for item in my_string]
