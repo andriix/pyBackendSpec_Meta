@@ -1,25 +1,18 @@
-# Lists
-list1 = [1, 2, 3, 4, 5]
+def sum_of(*args):
+    total = 0
+    for x in args:
+        total += x
+    return round(total, 2)
 
-print(list1, sep=" ")
 
-list1.append(6)
-list1.insert(0, -1)
+print(sum_of(3, 5, 2.4))
 
-print(list1, sep=" ")
 
-# Tuples
-my_tuple = (1, 2, 3, 4, 5)
-print(type(my_tuple))
+def sum_of_dict(**kwargs):
+    total = 0
+    for k, v in kwargs.items():
+        total += v
+    return round(total, 2)
 
-# Sets
-my_set = {1, 2, 3, 4, 5}
-second_set = {4, 5, 6, 7}
 
-print(my_set.intersection(second_set))
-
-# Dictionaries
-my_dict = {1: "coffee", 2: "tea", 3: "juice"}
-
-for key, value in my_dict.items():
-    print(f"{key} -> {value}")
+print(sum_of_dict(coffee=2.3, cake=1.5))
