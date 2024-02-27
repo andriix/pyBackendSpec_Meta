@@ -1,42 +1,26 @@
-"""
-This pattern is particularly useful for writing Python files
-that can be both used by other files as modules (imported and
-reusing functions or classes defined in them) and run as
-standalone scripts (executing some logic directly).
-It allows for cleaner code organization and reusability,
-enabling the same file to serve dual purposes without causing
-side effects when imported.
-"""
-def useful_function():
-    print("Doing something useful")
+# Starter code
+items = [1,2,3,4,5]
+try:
+    item = items[6]
+    print(item)
+except IndexError as e:
+    print("Item does not exist in the list")
 
-def main():
-    print("Testing the useful function:")
-    useful_function()
+# Starter code
+def divide_by(a, b):
+    try:
+        return a / b
+    except ZeroDivisionError:
+        return 0
+    except Exception as exc:
+        print(exc, 'Something went wrong!')
 
-if __name__ == "__main__":
-    main()
+ans = divide_by(40, 0)
+print(ans)
 
-# -----------------------
-
-class Animal:
-    def speak(self):
-        raise NotImplementedError("Subclass must implement abstract method")
-
-class Dog(Animal):
-    def speak(self):
-        return "Woof!"
-
-class Cat(Animal):
-    def speak(self):
-        return "Meow!"
-
-class Duck(Animal):
-    def noise(self):
-        return "Kry kry"
-
-my_cat = Cat()
-my_cat.speak()
-
-my_duck = Duck()
-my_duck.speak()
+# Starter code
+try:
+    with open('file_does_not_exist.txt', 'r') as file:
+        print(file.read())
+except FileNotFoundError as e:
+    print("The file could not be found")
