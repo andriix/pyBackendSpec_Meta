@@ -118,10 +118,10 @@ Feel free to uncomment/modify/add to them as you wish.
 
 def main():
     file_contents = read_file("test_file.txt")
-    print(read_file_into_list("stest_file.txt"))
+    print(read_file_into_list("test_file.txt"))
 #   write_first_line_to_file(file_contents, "online.txt")
-    print(read_even_numbered_lines("test_file.txt.txt"))
-    print(read_file_in_reverse("test_file.txt.txt"))
+    print(read_even_numbered_lines("test_file.txt"))
+    print(read_file_in_reverse("test_file.txt"))
 
 
 if __name__ == "__main__":
