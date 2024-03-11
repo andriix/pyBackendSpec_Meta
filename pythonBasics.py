@@ -1,89 +1,17 @@
-# Input data: List of dictionaries
-employee_list = [
-    {"id": 12345, "name": "John", "department": "Kitchen"},
-    {"id": 12456, "name": "Paul", "department": "House Floor"},
-    {"id": 12478, "name": "Sarah", "department": "Management"},
-    {"id": 12434, "name": "Lisa", "department": "Cold Storage"},
-    {"id": 12483, "name": "Ryan", "department": "Inventory Mgmt"},
-    {"id": 12419, "name": "Gill", "department": "Cashier"}
-]
+class Account:
+    def __init__(self, name, balance):
+        self._name = name           # Intended as a private attribute
+        self._balance = balance     # Intended as a private attribute
 
+    def deposit(self, amount):
+        if amount > 0:
+            self._balance += amount
+            self._updateLedger(amount)  # Private method call
 
-# Function to be passed to the map() function. Do not change this.
-def mod(employee_list):
-    temp = employee_list['name'] + "_" + employee_list["department"]
-    return temp
+    def _updateLedger(self, amount):     # Private method
+        print(f"{amount} deposited to the ledger.")
 
-
-def to_mod_list(employee_list):
-    """ Modifies the employee list of dictionaries into list of employee-department strings
-
-   [IMPLEMENT ME] 
-      1. Use the map() method to apply mod() to all elements in employee_list
-
-   Args:
-      employee_list: list of employee objects
-
-   Returns:
-      list - A list of strings consisting of name + department.
-   """
-    ### WRITE SOLUTION CODE HERE
-    map_emp = list(map(mod, employee_list))
-    return map_emp
-
-
-def generate_usernames(mod_list):
-    """ Generates a list of usernames
-
-   [IMPLEMENT ME] 
-      1. Use list comprehension and the replace() function to replace space
-         characters with underscores
-
-      List comprehension looks like:
-      list = [ function() for <item> in <list> ]
-
-      The format for the replace() function is:
-
-      test_str.replace(“a”, “z”) # replaces every “a” in test_str with “z”
-
-   Args:
-      mod_list: list of employee-department strings
-
-   Returns:
-      list - A list of usernames consisting of name + department delimited by underscores.
-   """
-    ### WRITE SOLUTION CODE HERE
-    return [username.replace(" ", "_") for username in mod_list]
-
-
-def map_id_to_initial(employee_list):
-    """ Maps employee id to first initial
-
-   [IMPLEMENT ME] 
-      1. Use dictionary comprehension to map each employee's id (value) to the first letter in their name (key)
-
-      Dictionary comprehension looks like:
-      dict = { key : value for <item> in <list> }
-
-   Args:
-      employee_list: list of employee objects
-
-   Returns:
-      dict - A dictionary mapping an employee's id (value) to their first initial (key).
-   """
-    ### WRITE SOLUTION CODE HERE
-    my_dict = {record['name'][0]: record['id'] for record in employee_list}
-    return my_dict
-
-
-def main():
-    mod_emp_list = to_mod_list(employee_list)
-    print("Modified employee list: " + str(mod_emp_list) + "\n")
-
-    print(f"List of usernames: {generate_usernames(mod_emp_list)}\n")
-
-    print(f"Initials and ids: {map_id_to_initial(employee_list)}")
-
-
-if __name__ == "__main__":
-    main()
+# External access
+account = Account("John Doe", 1000)
+account.deposit(500)
+# account.__updateLedger(500)  # This would raise an AttributeError
