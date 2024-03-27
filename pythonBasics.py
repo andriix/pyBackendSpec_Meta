@@ -1,23 +1,24 @@
-import pytest
-import os
+# Given implementations of some string-related methods. 
+# DO NOT CHANGE THIS FILE
 
-"""
-@pytest.fixture is a decorator provided by the pytest framework,
-one of the most popular testing frameworks for Python.
-Fixtures are a powerful feature for setting up preconditions for tests,
-such as preparing data, state, or configurations that tests may require.
-"""
-@pytest.fixture
-def temp_file():
-    with open("temp_file.txt", "w") as f:
-        f.write("Hello, pytest!")
-    # No explicit teardown is needed here because of the context manager,
-    # but this is where you'd usually put teardown logic if needed.
-    yield "temp_file.txt"
-    # Teardown code to remove the temporary file after the test runs
-    os.remove("temp_file.txt")
+def word_count(sentence):
+    # Function to check the number of words. Returns the word count in string.
+    words = len(sentence.split())
+    print(words)
+    return words
 
-def test_temp_file_content(temp_file):
-    with open(temp_file, "r") as f:
-        content = f.read()
-    assert content == "Hello, pytest!"
+def char_count(sentence):
+    # Function to check the number of characters. Returns the character count in string.
+    chars = len(sentence)
+    print(chars)
+    return chars
+
+def first_char(sentence):
+    # Function to check the first character using the string index. Returns the first character in string.
+    first = sentence[0]
+    return first
+
+def last_char(sentence):
+    # Function to check the last character using the string index. Returns the last character in string.
+    last = sentence[-1]
+    return last
