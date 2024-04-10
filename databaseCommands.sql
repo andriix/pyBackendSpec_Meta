@@ -27,9 +27,20 @@ ALTER TABLE devices MODIFY deviceName varchar(100);
 INSERT INTO devices(deviceID, deviceName, price) VALUES (123, "Samsung M32", 250),
                                                         (124, "Apple 14", 800)
 INSERT INTO target_table(column_name) SELECT column_name FROM source_table;
+
 -- SELECT statement
 SELECT deviceName FROM devices;
 
 SELECT deviceName, price FROM devices;
 
 SELECT * FROM devices;
+
+-- UPDATE statement
+UPDATE devices SET price = 240 WHERE ID = 123
+
+UPDATE Address SET postcode = "65012" WHERE town = "Odesa"
+
+-- DELETE statement
+DELETE FROM devices WHERE deviceName = "Sony WT19i"
+
+
