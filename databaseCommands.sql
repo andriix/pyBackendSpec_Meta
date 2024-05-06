@@ -10,9 +10,9 @@ show columns from devices;
 -- CREATE statement
 CREATE TABLE devices (deviceID int, deviceName varchar(50), price decimal);
 
-CREATE TABLE feedback(feedbackID CHAR(8), feedbackType VARCHAR(100),
+CREATE TABLE feedbacks(feedbackID CHAR(8), feedbackType VARCHAR(100),
                       comment TEXT(500));
-CREATE TABLE Address (id int NOT NULL,  street VARCHAR(255),
+CREATE TABLE Addresses (id int NOT NULL,  street VARCHAR(255),
                       postcode VARCHAR(10) DEFAULT "HA97DE",
                       town VARCHAR(30) DEFAULT "Harrow");
 
@@ -38,9 +38,38 @@ SELECT * FROM devices;
 -- UPDATE statement
 UPDATE devices SET price = 240 WHERE ID = 123
 
-UPDATE Address SET postcode = "65012" WHERE town = "Odesa"
+UPDATE Addresses SET postcode = "65012" WHERE town = "Odesa"
 
 -- DELETE statement
 DELETE FROM devices WHERE deviceName = "Sony WT19i"
+
+-- ORDER BY clause
+SELECT deviceName, price FROM devices ORDER BY deviceName ASC
+
+-- WHERE clause
+SELECT deviceName FROM devices WHERE price BETWEEN 100 and 200
+SELECT deviceName FROM devices WHERE deviceName LIKE 'Asus TUF %'
+SELECT * FROM Addresses WHERE town IN ('Odesa', 'Kyiv')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
