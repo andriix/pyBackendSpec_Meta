@@ -10,6 +10,11 @@ show columns from devices;
 -- CREATE statement
 CREATE TABLE devices (deviceID int, deviceName varchar(50), price decimal);
 
+CREATE TABLE accessories (accessID int, accessName varchar(50), device_id int,
+                          PRIMARY KEY (accessID),
+                          FOREIGN KEY (device_id) REFERENCES devices(deviceID)
+                          )
+
 CREATE TABLE feedbacks(feedbackID CHAR(8), feedbackType VARCHAR(100),
                       comment TEXT(500));
 CREATE TABLE Addresses (id int NOT NULL,  street VARCHAR(255),
