@@ -56,7 +56,11 @@ SELECT deviceName FROM devices WHERE price BETWEEN 100 and 200
 SELECT deviceName FROM devices WHERE deviceName LIKE 'Asus TUF %'
 SELECT * FROM Addresses WHERE town IN ('Odesa', 'Kyiv')
 
-
+-- Data normalization ->
+-- The three fundamental normalization forms are known as:
+-- First Normal Form (1NF)
+-- Second Normal Form (2NF)
+-- Third Normal Form (3NF)
 
 
 
