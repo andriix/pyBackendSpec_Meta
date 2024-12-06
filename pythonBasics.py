@@ -22,3 +22,5 @@ def last_char(sentence):
     # Function to check the last character using the string index. Returns the last character in string.
     last = sentence[-1]
     return last
+
+print("Hello from WEB VS Code IDE:) ")
