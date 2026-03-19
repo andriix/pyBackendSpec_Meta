@@ -1,8 +1,16 @@
-from fastapi import FastAPI
-from fastapi.responses import Response
+from fastapi import FastAPI, HTTPException
 
 app = FastAPI()
 
-@app.get("/health")
-def health_check():
-    return Response(status_code=200)
+BALANCE : dict = {}
+
+@app.get("/balance")
+def get_balance(wallet_name: str | None = None):
+    if wallet_name is None:
+        return {"total_balance": sum(BALANCE.values())}
+    if wallet_name not in BALANCE:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Wallet '{wallet_name}' not found"
+            )
+    return {"wallet": wallet_name, "balance": BALANCE[wallet_name]}
