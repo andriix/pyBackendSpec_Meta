@@ -4,7 +4,7 @@ Import statements:
 '''
 ### WRITE IMPORT STATEMENTS HERE
 import pytest
-import pythonBasics
+import main
 
 # String variables to be tested
 alpha = "Checking the length & structure of the sentence."
@@ -29,8 +29,8 @@ def test_length(input_value):
                    in the input_value() function
     """
     ### WRITE SOLUTION CODE HERE
-    assert pythonBasics.word_count(input_value) < 10
-    assert pythonBasics.char_count(input_value) < 50
+    assert main.word_count(input_value) < 10
+    assert main.char_count(input_value) < 50
 
 # Second test function test_struc()
 def test_struc(input_value):
@@ -45,7 +45,7 @@ def test_struc(input_value):
                    in the input_value() function
     """
     ### WRITE SOLUTION CODE HERE
-    assert str(pythonBasics.first_char(input_value)).isupper()
-    assert str(pythonBasics.last_char(input_value)) == '.'
+    assert str(main.first_char(input_value)).isupper()
+    assert str(main.last_char(input_value)) == '.'
 
 # Run these tests with `python3 -m pytest test_pythonBasics.py`
